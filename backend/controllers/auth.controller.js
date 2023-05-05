@@ -1,6 +1,6 @@
 const crypto = require('crypto');
 
-const User = require('../models/user');
+const User = require('../models/user.model');
 const ErrorHandler = require('../utils/errorHandler');
 const catchAsyncErrors = require('../middlewares/catchAsyncErrors');
 const APIFeatures = require('../utils/apiFeatures');

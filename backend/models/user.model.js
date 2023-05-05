@@ -19,7 +19,8 @@ const userSchema = new mongoose.Schema({
   password: {
     type: String,
     required: [true, 'Please enter your password'],
-    minlength: [6, 'Password must be at least 6 characters'],
+    minlength: [8, 'Password must be at least 8 characters'],
+    maxlength: [20, 'Password cannot extends 20 characters'],
     select: false,
   },
   role: {
@@ -27,8 +28,6 @@ const userSchema = new mongoose.Schema({
     default: 'employee',
   },
   createdAt: { type: Date, default: Date.now },
-  resetPasswordToken: { type: String },
-  resetPasswordExpire: Date,
 });
 
 // Encrypting password before saving
