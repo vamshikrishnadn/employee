@@ -1,0 +1,131 @@
+[
+  {
+    "name": "vamshi",
+    "price": 20,
+    "description": "description",
+    "ratings": 2,
+    "images": [{ "public_id": "afd", "url": "lfkdsjl" }],
+    "category": "Food",
+    "seller": "sdlfjk",
+    "stock": 78,
+    "numOfReviews": 89,
+    "reviews": [
+      {
+        "name": "vamshi",
+        "rating": 1,
+        "comment": "comment"
+      }
+    ]
+  },
+  {
+    "name": "vamshi",
+    "price": 20,
+    "description": "description",
+    "ratings": 2,
+    "images": [{ "public_id": "afd", "url": "lfkdsjl" }],
+    "category": "Food",
+    "seller": "sdlfjk",
+    "stock": 78,
+    "numOfReviews": 89,
+    "reviews": [
+      {
+        "name": "vamshi",
+        "rating": 1,
+        "comment": "comment"
+      }
+    ]
+  },
+  {
+    "name": "vamshi",
+    "price": 20,
+    "description": "description",
+    "ratings": 2,
+    "images": [{ "public_id": "afd", "url": "lfkdsjl" }],
+    "category": "Food",
+    "seller": "sdlfjk",
+    "stock": 78,
+    "numOfReviews": 89,
+    "reviews": [
+      {
+        "name": "vamshi",
+        "rating": 1,
+        "comment": "comment"
+      }
+    ]
+  },
+  {
+    "name": "vamshi",
+    "price": 20,
+    "description": "description",
+    "ratings": 2,
+    "images": [
+      { "public_id": "afd", "url": "lfkdsjl" },
+      { "public_id": "afd", "url": "lfkdsjl" }
+    ],
+    "category": "Food",
+    "seller": "sdlfjk",
+    "stock": 78,
+    "numOfReviews": 89,
+    "reviews": [
+      {
+        "name": "vamshi",
+        "rating": 1,
+        "comment": "comment"
+      }
+    ]
+  },
+  {
+    "name": "vamshi",
+    "price": 20,
+    "description": "description",
+    "ratings": 2,
+    "images": [{ "public_id": "afd", "url": "lfkdsjl" }],
+    "category": "Food",
+    "seller": "sdlfjk",
+    "stock": 78,
+    "numOfReviews": 89,
+    "reviews": [
+      {
+        "name": "vamshi",
+        "rating": 1,
+        "comment": "comment"
+      }
+    ]
+  },
+  {
+    "name": "vamshi",
+    "price": 20,
+    "description": "description",
+    "ratings": 2,
+    "images": [{ "public_id": "afd", "url": "lfkdsjl" }],
+    "category": "Food",
+    "seller": "sdlfjk",
+    "stock": 78,
+    "numOfReviews": 89,
+    "reviews": [
+      {
+        "name": "vamshi",
+        "rating": 1,
+        "comment": "comment"
+      }
+    ]
+  },
+  {
+    "name": "reddy",
+    "price": 202,
+    "description": "description1",
+    "ratings": 2,
+    "images": [{ "public_id": "adsfasd", "url": "erewrew" }],
+    "category": "Books",
+    "seller": "rwte",
+    "stock": 278,
+    "numOfReviews": 3,
+    "reviews": [
+      {
+        "name": "vamshi",
+        "rating": 1,
+        "comment": "comment"
+      }
+    ]
+  }
+]
