@@ -1,0 +1,31 @@
+section {
+  background: #7ebb5d;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form_container {
+  padding: 2rem;
+  background: #fff;
+}
+
+.login_btn {
+  background: #53af50;
+  color: #fff;
+  display: block;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  outline: none;
+  border: none;
+}
+
+.eye_icon {
+  position: absolute;
+  right: 5%;
+  cursor: pointer;
+  top: 50%;
+  font-size: 1.2rem;
+}
