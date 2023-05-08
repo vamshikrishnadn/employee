@@ -1,10 +1,13 @@
 import React from 'react';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/lib/integration/react';
 import ReactDOM from 'react-dom/client';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import App from './jsx/App';
 import reportWebVitals from './reportWebVitals';
 import './assets/css/style.css';
+import { store, persistor } from './store/reducers';
 
 // toast setup
 import { toast } from 'react-toastify';
@@ -14,7 +17,11 @@ toast.configure();
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <PersistGate persistor={persistor}>
+        <App />
+      </PersistGate>
+    </Provider>
   </React.StrictMode>
 );
 

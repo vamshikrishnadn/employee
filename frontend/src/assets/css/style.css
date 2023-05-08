@@ -5,3 +5,18 @@
 .text-green {
   color: #53af50 !important;
 }
+body {
+  background-color: #f8f8f8;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.trash_icon:hover {
+  color: rgb(208, 7, 7);
+}
+
+.edit_icon:hover {
+  color: #0d6efd;
+}

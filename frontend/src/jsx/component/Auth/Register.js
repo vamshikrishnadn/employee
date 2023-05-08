@@ -1,19 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import Form from 'react-bootstrap/Form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { EyeFill, EyeSlashFill } from 'react-bootstrap-icons';
+import { useDispatch, useSelector } from 'react-redux';
+import Spinner from 'react-bootstrap/Spinner';
 
 import '../../../assets/css/auth.css';
+import { registerUser } from '../../../store/actions/AuthActions';
 
 const Register = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   // states
   const [errors, setErrors] = useState({});
   const [data, setData] = useState({ role: 'employee' });
   const [showPassword, setShowPassword] = useState(false);
 
+  // selectors
+  const { btnLoader } = useSelector(state => state.app);
+
   const handleChange = e => {
+    console.log('evalue', e);
     setData({ ...data, [e.target.name]: e.target.value });
     setErrors({ ...errors, [e.target.name]: null });
+    delete errors?.[e.target.name];
   };
 
   const handleSubmit = e => {
@@ -36,10 +47,11 @@ const Register = () => {
     }
 
     console.log('data', data);
+    dispatch(registerUser(data, navigate));
   };
 
   return (
-    <section>
+    <section className='login_section'>
       <div className='col-10 col-lg-8 form_container'>
         <h4 className='text-center mb-4'>Register</h4>
         <Form onSubmit={handleSubmit}>
@@ -47,17 +59,56 @@ const Register = () => {
             <div className='col-12 col-lg-6'>
               <Form.Group className='mb-3 ' controlId='formBasicEmail'>
                 <Form.Label>
-                  Name<span className='text-danger'>*</span>
+                  First Name<span className='text-danger'>*</span>
                 </Form.Label>
                 <Form.Control
                   type='text'
-                  placeholder='Enter your name'
-                  name='name'
-                  value={data?.['name']}
+                  placeholder='Enter your first name'
+                  name='fname'
+                  value={data?.['fname']}
                   onChange={handleChange}
                   required
                 />
-                {errors?.email && <span className='text-danger'>{errors?.['email']}</span>}
+              </Form.Group>
+            </div>
+
+            <div className='col-12 col-lg-6'>
+              <Form.Group className='mb-3 ' controlId='formBasicEmail'>
+                <Form.Label>Last Name</Form.Label>
+                <Form.Control
+                  type='text'
+                  placeholder='Enter your first name'
+                  name='lname'
+                  value={data?.['lname']}
+                  onChange={handleChange}
+                />
+              </Form.Group>
+            </div>
+
+            <div className='col-12 col-lg-6'>
+              <Form.Group className='mb-3 ' controlId='formBasicEmail'>
+                <Form.Label>
+                  Gender<span className='text-danger'>*</span>
+                </Form.Label>
+                <br />
+                <Form.Check
+                  inline
+                  label='Male'
+                  name='gender'
+                  type={'radio'}
+                  id={`gender-1`}
+                  value='Male'
+                  onChange={handleChange}
+                />
+                <Form.Check
+                  inline
+                  label='Female'
+                  name='gender'
+                  type={'radio'}
+                  id={`gender-2`}
+                  value='Female'
+                  onChange={handleChange}
+                />
               </Form.Group>
             </div>
 
@@ -133,7 +184,7 @@ const Register = () => {
 
             <div className='col-12 col-lg-6 mx-auto'>
               <button className='login_btn my-3 mt-4' type='submit'>
-                Register
+                {btnLoader ? <Spinner animation='border' size='sm' /> : 'Register'}
               </button>
             </div>
             <div className='text-center'>

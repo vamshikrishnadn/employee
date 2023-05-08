@@ -11,22 +11,20 @@ const cloudinary = require('cloudinary');
 // Register a user => /api/v1/registers
 exports.registerUser = catchAsyncErrors(async (req, res, next) => {
   // console.log(req.body);
-  const { name, email, password } = req.body;
+  const { name, email, password, role } = req.body;
 
   const verifyAccount = await User.findOne({ email });
 
   if (verifyAccount) {
-    return res.status(400).send({
+    new ErrorHandler('Email already exists', 400);
+    res.status(400).send({
       success: false,
       message: 'Email already exists',
     });
+    return;
   }
 
-  const user = await User.create({
-    email,
-    password,
-    name,
-  });
+  const user = await User.create(req.body);
   sendToken(user, 200, res);
 });
 
@@ -39,7 +37,7 @@ exports.loginUser = catchAsyncErrors(async (req, res, next) => {
     return new ErrorHandler('Please provide email and password', 400);
   }
   // 2. Check if user exists
-  const user = await User.findOne({ email }).select('+password');
+  var user = await User.findOne({ email }).select('+password');
   if (!user) {
     return next(new ErrorHandler('Cant find your email or password', 401));
   }
@@ -48,6 +46,7 @@ exports.loginUser = catchAsyncErrors(async (req, res, next) => {
   if (!isPasswordValid) {
     return next(new ErrorHandler('Incorrect password', 401));
   }
+  var user = await User.findOne({ email }).select('-password');
   // const token = user.getJwtToken();
   sendToken(user, 200, res);
 });

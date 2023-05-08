@@ -25,7 +25,13 @@ const departmentSchema = new mongoose.Schema({
     type: String,
   },
   employeeID: {
-    type: Array,
+    type: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        require: true,
+        ref: 'User',
+      },
+    ],
     default: [],
   },
   createdBy: {
