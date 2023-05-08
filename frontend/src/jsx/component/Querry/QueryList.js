@@ -12,14 +12,8 @@ const QueryList = () => {
   const queryTwo = useSelector(state => state.query?.queryTaskTwo);
   console.log('🚀 ~ file: QueryList.js:11 ~ QueryList ~ queryOne:', queryOne);
 
-  const columns1 = ['Category', 'Location', 'Department Name', 'Salary'];
-  const columns2 = [
-    'Category',
-    'Employee Names in Decreasing order',
-    'Location',
-    'Department Name',
-    'Salary',
-  ];
+  const columns1 = ['Category', 'Location', 'Salary'];
+  const columns2 = ['Category', 'Employee Names in Decreasing order', 'Location', 'Salary'];
 
   useEffect(() => {
     dispatch(queryTaskOne());
@@ -56,7 +50,6 @@ const QueryList = () => {
                   <tr key={i}>
                     <td>{row?.category}</td>
                     <td>{row?.location}</td>
-                    <td>{row?.name}</td>
                     <td>{row?.salary}</td>
                   </tr>
                 ))}
@@ -103,7 +96,6 @@ const QueryList = () => {
                         : row?.employeeID?.map(user => <span key={user?._id}>{user?.name}, </span>)}
                     </td>
                     <td>{row?.location}</td>
-                    <td>{row?.name}</td>
                     <td>{row?.salary}</td>
                   </tr>
                 ))}
