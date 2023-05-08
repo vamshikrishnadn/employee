@@ -11,7 +11,7 @@ const cloudinary = require('cloudinary');
 // Register a user => /api/v1/registers
 exports.registerUser = catchAsyncErrors(async (req, res, next) => {
   // console.log(req.body);
-  const { name, email, password, role } = req.body;
+  const { email, password, role } = req.body;
 
   const verifyAccount = await User.findOne({ email });
 
@@ -24,7 +24,10 @@ exports.registerUser = catchAsyncErrors(async (req, res, next) => {
     return;
   }
 
-  const user = await User.create(req.body);
+  const user = await User.create({
+    ...req.body,
+    name: `${req.body.fname} ${req.body.lname ? req.body.lname : ''}`,
+  });
   sendToken(user, 200, res);
 });
 
